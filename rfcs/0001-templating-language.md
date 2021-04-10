@@ -1,4 +1,4 @@
-# 0000-schema-language
+# 0000-template-language
 
 - Start Date: 2021-04-04
 - Target Major Version: (1.x)
@@ -7,7 +7,7 @@
 
 # Summary
 
-The templating language under discussion here is the string formatting language
+The template language under discussion here is the string formatting language
 that Appear will use to generate code. The overarching design pattern follows
 file-based templates, under which a search and replace method renders many new
 files with data inserted.
