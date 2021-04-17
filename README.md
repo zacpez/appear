@@ -5,6 +5,96 @@ Appear is a CLI toolkit to generate application code.
 * Improve maintainability by making the application files consistent.
 * Reduce copy-paste errors or dangling unused code by design.
 
+## Installation steps
+
+Appear can be installed with Python package manager.
+``` bash
+$ pip install appear
+```
+
+OR
+
+Clone and install the latest version of Appear directly
+```bash
+$ pip install git+https://github.com/zacpez/appear@main
+```
+
+## Getting started
+
+Initialize an Appear configuration in a project folder. Initialization
+without setting flags will create a skeleton configuration folder, and
+the develop must fill out their own schema and templates.
+
+```bash
+$ pwd 
+  /my/projects/new_project
+$ appear init # Creates a `.appear` directory in your project.
+$ ls
+  .appear/
+  README.md
+```
+
+Create a configuration with preferred starting templates. Using flags such as
+the example below, will create schemas and templates that match the stack
+described. The application will be bare bones, but the app can stand up easily.
+
+```bash
+$ appear init --frontend=vue --backend=flask --database=postgres --container=nginx-proxy
+$ tree .appear
+.
+├── templates
+│   ├── frontend
+│   │   ├── component.vue.jinja
+│   │   ├── page.vue.jinja
+│   │   ├── app.vue.jinja
+│   │   └── app.docker.jinja
+│   ├── proxy
+│   │   └── nginx.docker.jinja
+│   ├── backend
+│   │   ├── model.sqlalchemy.jinja
+│   │   ├── app.flask.jinja
+│   │   ├── test.pytest.jinja
+│   │   └── app.docker.jinja
+│   └── database
+│       ├── fixture.postgres.jinja
+│       └── app.docker.jinja
+└── schema
+    ├── user
+    │   ├── user.assignment.json
+    │   ├── user.history.json
+    │   └── user.roles.json
+    ├── page
+    │   ├── page.content.json
+    │   └── page.plugin.json
+    └── form
+        ├── form.fields.json
+        └── form.submission.json
+```
+
+After setting up the application configuration run a build the project folder.
+
+```bash
+$ appear build # Creates project files in your project.
+$ ls
+  .appear/
+  frontend/
+  backend/
+  database/
+  docker-compose.yml
+  README.md
+```
+
+Check some basic statistics of the application configuration. This can be handy
+to validate the build.
+
+```bash
+$ appear build --summary # returns meta data on .appear configs
+Components: frontend, backend, database
+Number of user Schemas: 12
+Number of Template files: 144
+...
+```
+
 ## RFC Process
 In this project we will follow an [RFC process that vuejs follows](https://github.com/vuejs/rfcs). It is a github-based workflow that is manageable for a project like this. Below is a reiteration of the above link, please read both.
 
