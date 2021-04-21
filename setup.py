@@ -1,9 +1,10 @@
 from setuptools import setup, find_packages
 import re
+import os
 
 
-def readme(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+def readme(filename):
+    return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 
 def find_version(filename):
@@ -36,10 +37,10 @@ setup(
         'requests',
         'importlib; python_version == "2.6"',
     ],
-    long_description=readme('README'),
+    long_description=readme('README.md'),
     entry_points={
         'console_scripts': [
-            'appear = __init__:appear'
+            'appear = appear:appear'
         ]
     },
 )

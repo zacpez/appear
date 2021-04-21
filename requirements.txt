@@ -6,3 +6,4 @@ flake8>=3.9.0
 pytest>=6.2.3
 pytest-cov>=2.11.1
 setuptools>=49.2.1
+click>=7.1.2
