@@ -1,0 +1,19 @@
+on: [push]
+
+jobs:
+  runs:
+    runs-on: ubuntu-latest
+    name: Run all tests
+    steps:
+      - uses: actions/checkout@v2
+      - id: Install
+        uses: actions/install@v1
+      - name: Test with pytest
+        run: pytest tests.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml --cov=com --cov-report=xml --cov-report=html
+      - name: Upload pytest test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: pytest-results-${{ matrix.python-version }}
+          path: junit/test-results-${{ matrix.python-version }}.xml
+        # Use always() to always run this step to publish test results when there are test failures
+        if: ${{ always() }}
