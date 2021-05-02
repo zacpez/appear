@@ -2,6 +2,7 @@ import click
 from appear.commands.build import generate_app, generate_summary
 from appear.commands.init import generate_config
 from appear.commands.test import run_tests
+from appear.commands.publish import run_publish
 
 __package__ = "appear"
 __version__ = "0.0.1"
@@ -45,17 +46,13 @@ def build(ctx, summary):
 @click.option("--database", "database",
               default='postgres',
               help="Identifies a database to put in the appear configuration")
-@click.option("--container", "container",
+@click.option("--containers", "containers",
               default='nginx',
-              help="Identifies a container to put in the appear configuration")
+              help="Identifies containers to put in the appear configuration")
 @click.pass_context
-def init(ctx, frontend, backend, database, container):
+def init(ctx, frontend, backend, database, containers):
     """Creates an appear configuration in .appear/"""
-    click.echo(frontend)
-    click.echo(backend)
-    click.echo(database)
-    click.echo(container)
-    click.echo(generate_config(__version__, __date__))
+    click.echo(generate_config(__version__, __date__, frontend, backend, database, containers.split(",")))
 
 
 @appear.command()
@@ -63,3 +60,10 @@ def init(ctx, frontend, backend, database, container):
 def test(ctx):
     """Tests the appear configuration and application"""
     click.echo(run_tests(__version__, __date__))
+
+
+@appear.command()
+@click.pass_context
+def publish(ctx):
+    """Builds and publishes the appear hosted assets"""
+    click.echo(run_publish(__version__, __date__))
