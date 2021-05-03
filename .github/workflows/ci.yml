@@ -1,4 +1,4 @@
-name: ci
+name: Appear frontend - Continuous Integration
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Setup node env 🏗
         uses: actions/setup-node@v2.1.2
@@ -42,7 +42,7 @@ jobs:
 
       - name: Install dependencies 👨🏻‍💻
         working-directory: ./frontend
-        run: yarn
+        run: yarn install
 
       - name: Run linter 👀
         working-directory: ./frontend
