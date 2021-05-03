@@ -16,16 +16,16 @@ jobs:
         node: [14]
 
     steps:
-      - name: Checkout 🛎
+      - name: Checkout 💨
         uses: actions/checkout@v1
 
-      - name: Setup node env 🏗
+      - name: Setup node env 👷
         uses: actions/setup-node@v2.1.2
         with:
           node-version: ${{ matrix.node }}
           check-latest: true
 
-      - name: Get yarn cache directory path 🛠
+      - name: Get yarn cache directory path 💃
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
@@ -44,5 +44,5 @@ jobs:
       - name: Run linter 👀
         run: yarn --cwd frontend lint
 
-      - name: Run tests 🧪
+      - name: Run tests 💯
         run: yarn --cwd frontend test
