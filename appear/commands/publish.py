@@ -25,7 +25,7 @@ def build_appear_assets(version, date):
         os.mkdir(PUBLIC_DIR)
     create_frontend()
     schema_path = create_schema_directories(version)
-    create_python_docs()
+    create_python_docs(schema_path)
     create_schema_files(schema_path, version, date)
     create_markdown_pages()
 
@@ -40,12 +40,12 @@ def publish_appear_assets():
 
 def create_frontend():
     click.echo("Create frontend application")
-    os.system(f'yarn --cwd frontend generate')
+    os.system('yarn --cwd frontend generate')
 
 
-def create_python_docs():
+def create_python_docs(schema_path):
     click.echo("Creating python docs")
-    os.system("pdoc3 --html -o {}docs --force appear".format(schema_path))
+    os.system(f'pdoc3 --html -o {schema_path}docs --force appear')
 
 
 def create_markdown_pages():
@@ -63,10 +63,10 @@ def create_schema_directories(version):
     """Create the schema version directory pattern.
     http://appear-schema.org/{major}/{minor}/{patch}/"""
     click.echo("Creating schema version directories")
-    versions = version.split(".")
-    major = "{}{}/".format(PUBLIC_DIR, versions[0])
-    minor = "{}{}/".format(major, versions[1])
-    patch = "{}{}/".format(minor, versions[2])
+    versions = version.split('.')
+    major = f'{PUBLIC_DIR}{versions[0]}/'
+    minor = f'{major}{versions[1]}/'
+    patch = f'{minor}{versions[2]}/'
 
     if os.path.isdir(major) is not True:
         os.mkdir(major)
@@ -80,6 +80,6 @@ def create_schema_directories(version):
 def create_schema_files(schema_path, version, date):
     """Creates schema files from class definitions"""
     click.echo("Writing schemas")
-    f = open("{}namespaces".format(schema_path), "w")
+    f = open(f'{schema_path}namespaces', 'w')
     f.write(generate_schema(version, date))
     f.close()
