@@ -1,6 +1,6 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 
-name: Python package
+name: Python runtime
 
 on:
   push:
@@ -24,12 +24,10 @@ jobs:
       - name: Install dependencies 👷
         run: |
           python -m pip install --upgrade pip
-          python -m pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Lint with flake8 👀
+      - name: Install application and run 💪
         run: |
           # stop the build if there are Python syntax errors or undefined names
-          flake8 .
-      - name: Test with pytest 💯
-        run: |
-          pytest
+          python setup.py build
+          python setup.py install
+          appear --help
