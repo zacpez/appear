@@ -2,11 +2,9 @@ name: Appear frontend - Continuous Integration
 
 on:
   push:
-    branches:
-      - main
+    branches: [main, develop]
   pull_request:
-    branches:
-      - main
+    branches: [main, develop]
 
 jobs:
   ci:
@@ -39,15 +37,15 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-
       - name: Install dependencies 👨🏻‍💻
-        working-directory: ./frontend
-        run: yarn install
+        run: ls -la
+      - name: Install dependencies 👨🏻‍💻
+        run: ls -la frontend
+      - name: Install dependencies 👨🏻‍💻
+        run: yarn --cwd frontend install
 
       - name: Run linter 👀
-        working-directory: ./frontend
-        run: yarn lint
+        run: yarn --cwd frontend lint
 
       - name: Run tests 🧪
-        working-directory: ./frontend
-        run: yarn test
+        run: yarn --cwd frontend test
