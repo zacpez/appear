@@ -1,19 +1,13 @@
 <template>
   <v-container>
-    <v-parallax
-      dark
-      class="content-row"
-      src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
-    >
-      <v-row justify="center" align="center">
-        <v-col cols="12" sm="8" md="6">
-          <div class="text-center">
-            <h1>Appear</h1>
-            <p>Appear is a CLI toolkit to generate application code.</p>
-          </div>
-        </v-col>
-      </v-row>
-    </v-parallax>
+    <v-row justify="center" align="center">
+      <v-col cols="12" sm="8" md="6">
+        <div class="text-center">
+          <h1>Appear</h1>
+          <p>Appear is a CLI toolkit to generate application code.</p>
+        </div>
+      </v-col>
+    </v-row>
     <v-row justify="space-around" class="content-row">
       <v-col>
         <v-card color="#385F73" dark>

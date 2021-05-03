@@ -40,7 +40,7 @@ module.exports = {
 
       webdriver: {
         start_process: true,
-        server_path: 'node_modules/.bin/chromedriver',
+        server_path: require('chromedriver').path,
         port: 9515,
       },
     },
@@ -227,13 +227,13 @@ module.exports = {
 function loadServices() {
   try {
     Services.seleniumServer = require('selenium-server')
-  } catch (err) {}
+  } catch (err) { }
 
   try {
     Services.chromedriver = require('chromedriver')
-  } catch (err) {}
+  } catch (err) { }
 
   try {
     Services.geckodriver = require('geckodriver')
-  } catch (err) {}
+  } catch (err) { }
 }

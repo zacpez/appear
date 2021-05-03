@@ -2,11 +2,11 @@ module.exports = {
   commands: [],
   url: 'http://localhost:3000',
   elements: {
-    docButton: {
-      selector: '.button--green',
+    appearTitle: {
+      selector: 'h1',
     },
-    githubButton: {
-      selector: '.button--grey',
+    footer: {
+      selector: 'footer',
     },
   },
 }
