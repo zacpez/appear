@@ -44,5 +44,5 @@ jobs:
       - name: Run linter 👀
         run: yarn --cwd frontend lint
 
-      - name: Run tests 💯
-        run: yarn --cwd frontend test
+      # - name: Run tests 💯
+      #   run: yarn --cwd frontend test
