@@ -1,0 +1,3 @@
+{% for requirement in requirements.list %}
+{{ requirement.name }}{{ '==' if requirements.lock else '>=' }}{{ requirement.version }}
+{% endfor %}

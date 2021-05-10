@@ -1,5 +1,6 @@
 import click
 import os
+from appear.templates.backend import get_backend_application
 
 
 def load_appear_config():
@@ -15,6 +16,14 @@ def generate_app():
     config = load_appear_config()
     if config is False:
         exit(1)
+
+    backend = None
+    backend_generator = get_backend_application(config.backend)
+    if backend_generator is None:
+        click.echo(click.style('Backend is not defined', bg='yellow'))
+    else:
+        backend = backend_generator.Application()
+        backend.generate_backend_files()
 
 
 def generate_summary():

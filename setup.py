@@ -35,7 +35,7 @@ setup(
     python_requires=">=3.8",
     install_requires=[
         'requests',
-        'importlib; python_version == "2.6"',
+        'importlib; python_version == "3.9"',
     ],
     long_description=readme('README.md'),
     entry_points={

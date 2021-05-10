@@ -1,0 +1,65 @@
+from flask import Flask, jsonify
+from flask_restful import reqparse, abort, Api, Resource
+
+app = Flask(__name__)
+
+{% for resource in application.resources %}
+from .models.{{ resource.domain }} import {{ resource.class }}
+{% endfor %}
+
+{% for resource in application.resources %}
+{% for endpoint in resource.endpoints %}
+
+{% if "GET" in endpoint.methods %}
+@app.route('{{ endpoint.uri }}/<id>', methods=["GET"])
+def get{{ endpoint.name }}():
+    result = {{ resource.class }}.find_by_id(id)
+    return jsonify({ 'item': result })
+{% endif %}
+
+{# TODO: Move this another area #}
+{# {% if "GET-MANY" in endpoint.methods %}
+@app.route('{{ endpoint.uri }}/list/', methods=["GET"])
+def {{ endpoint.name }}():
+    result = {{ endpoint.class }}.query.all()
+    return jsonify({ 'list': result })
+{% endif %} #}
+
+{% if "POST" in endpoint.methods %}
+@app.route('{{ endpoint.uri }}/', methods=["POST"])
+def post{{ endpoint.name }}():
+    result = {{ endpoint.class }}.query.all()
+    return jsonify({ 'item': result })
+{% endif %}
+
+{% if "PUT" in endpoint.methods %}
+@app.route('{{ endpoint.uri }}/<id>', methods=["PUT"])
+def put{{ endpoint.name }}():
+    result = {{ endpoint.class }}.query.all()
+    return jsonify({ 'item': result })
+{% endif %}
+
+{% if "PATCH" in endpoint.methods %}
+@app.route('{{ endpoint.uri }}/<id>', methods=["PATCH"])
+def patch{{ endpoint.name }}():
+    result = {{ endpoint.class }}.query.all()
+    return jsonify({ 'item': result })
+{% endif %}
+
+{% if "DELETE" in endpoint.methods %}
+@app.route('{{ endpoint.uri }}/<id>', methods=["DELETE"])
+def delete{{ endpoint.name }}():
+    result = {{ endpoint.class }}.query.all()
+    return jsonify({ 'item': result })
+{% endif %}
+
+{% endfor %}
+{% endfor %}
+
+if __name__ == '__main__':
+    from gevent.pywsgi import WSGIServer
+{% if application.debug %}
+    app.debug = True 
+{% endif %}
+    http_server = WSGIServer(({{ application.host }}, {{ application.port }}), app{{ ', keyfile=\'server.key\', certfile=\'server.crt\'' if application.ssl else '' }})
+    http_server.serve_forever()
