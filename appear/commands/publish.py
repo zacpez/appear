@@ -28,6 +28,7 @@ def build_appear_assets(version, date):
     create_python_docs(schema_path)
     create_schema_files(schema_path, version, date)
     create_markdown_pages()
+    # TODO Make nuxt app
 
     end = time.time()
     click.echo(click.style("Build finished in {} seconds".format(end - start), bg="green"))
@@ -46,6 +47,7 @@ def create_frontend():
 def create_python_docs(schema_path):
     click.echo("Creating python docs")
     os.system(f'pdoc3 --html -o {schema_path}docs --force appear')
+    # TODO: Make main documentation page the latest version
 
 
 def create_markdown_pages():

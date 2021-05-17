@@ -1,13 +1,16 @@
-from setuptools import setup, find_packages
+"""Apppear CLI build definitions"""
 import re
 import os
+from setuptools import setup, find_packages
 
 
 def readme(filename):
+    """Reads the main readmen and places it in the package definition"""
     return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 
 def find_version(filename):
+    """Grabs the latest version for the package definition"""
     _version_re = re.compile(r'__version__ = "(.*)"')
     for line in open(filename):
         version_match = _version_re.match(line)
@@ -17,7 +20,7 @@ def find_version(filename):
 
 version = find_version("appear/__init__.py")
 
-packages = find_packages(exclude=("examples*", "test*"))
+packages = find_packages(include=("appear*"))
 
 setup(
     name='appear',

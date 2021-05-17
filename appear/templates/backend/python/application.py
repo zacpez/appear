@@ -4,10 +4,11 @@ from appear.templates.backend.base.application import Application as BaseApplica
 
 class Application(BaseApplication):
     def __init__(self):
+        super.__init__()
         self.name = "python application"
 
-    def generate_requirements(self, template, filename, requirements):
-        self.generate_template(template, filename, requirements)
+    def generate_requirements(self, template, filename, requirements_model):
+        self.generate_template(template, filename, requirements_model)
 
     def generate_backend_files(self, schema_model):
         requirements = getattr(schema_model, 'requirements')

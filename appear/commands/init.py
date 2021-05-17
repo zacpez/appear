@@ -1,6 +1,8 @@
 from appear.schema.namespaces import generate_schema
 import os
 import json
+import importlib.resources
+
 
 ROOT_PATH = ".appear/"
 SCHEMA_PATH = ROOT_PATH + "schema/"
@@ -24,9 +26,14 @@ def create_paths(frontend, backend, database, containers):
     if os.path.isdir(TEMPLATES_PATH) is not True:
         os.mkdir(TEMPLATES_PATH)
 
-    create_templates_schemas('frontend', frontend)
-    create_templates_schemas('backend', backend)
-    create_templates_schemas('database', database)
+    if frontend is not None:
+        create_templates_schemas('frontend', frontend)
+
+    if backend is not None:
+        create_templates_schemas('backend', backend)
+
+    if database is not None:
+        create_templates_schemas('database', database)
 
     if len(containers) > 0:
         for container in containers:
@@ -49,9 +56,20 @@ def create_templates_schemas(schema_type, name):
     template_path = f'{TEMPLATES_PATH}{schema_type}/'
 
     create_templates_directories(schema_path, template_path)
-    config_fd = open(f'{schema_path}appear.config.json', 'w')
-    config_fd.write(json.dumps(dict(type=name)))
-    config_fd.close()
-    template_fd = open(f'{template_path}appear.config.jinja', 'w')
-    template_fd.write(json.dumps(dict(type=name)))
-    template_fd.close()
+
+    # TODO: Convert to a http request for assets
+    schema_source_path = f'schemas/{schema_type}/{name}/'
+    with importlib.resources.path("appear", f'{schema_source_path}appear.config.json') as data_path:
+        with open(data_path, 'r') as config_source_fd:
+            config_content = config_source_fd.read()
+            config_target_fd = open(f'{schema_path}appear.config.json', 'w')
+            config_target_fd.write(config_content)
+            config_target_fd.close()
+
+    template_source_path = f'templates/{schema_type}/{name}/'
+    with importlib.resources.path("appear", f'{template_source_path}appear.config.json') as data_path:
+        with open(data_path, 'r') as template_source_fd:
+            template_content = template_source_fd.read()
+            template_fd = open(f'{template_path}appear.config.jinja', 'w')
+            template_fd.write(template_content)
+            template_fd.close()

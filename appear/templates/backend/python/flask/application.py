@@ -1,21 +1,14 @@
 """Flask(Python) Application Model"""
-from jinja2 import Template
 from appear.templates.backend.python.application import Application as BaseApplication
 
 
 class Application(BaseApplication):
     def __init__(self):
+        super.__init__()
         self.name = "flask(python) application"
 
     def generate_application(self, template, filename, application_model):
-        template_fd = open(template, "r")
-        template = Template(template_fd.read())
-        template_fd.close()
-        generated_content = template.render(**application_model)
-        generated_fd = open(filename, "w")
-        generated_fd.write(generated_content)
-        generated_fd.close()
-        pass
+        self.generate_template(template, filename, application_model)
 
     def generate_resources(self, resources_model):
         for resource_model in resources_model:
