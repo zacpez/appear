@@ -41,13 +41,16 @@ def generate_app():
     if config['backend'] is None:
         click.echo(click.style('Backend is not defined', bg='yellow'))
 
-    backend = config['backend']
-    backend_generator = get_backend_application(backend)
+    backend_config = config.get('backend')
+    if backend_config is None:
+        click.echo(click.style('Backend is not defined', bg='yellow'))
+
+    backend_generator = get_backend_application(backend_config)
     if backend_generator is None:
         click.echo(click.style('Backend generator is not defined', bg='yellow'))
     else:
         backend = backend_generator.Application()
-        backend.generate_backend_files(backend)
+        backend.generate_backend_files(backend_config)
 
 
 def generate_summary():

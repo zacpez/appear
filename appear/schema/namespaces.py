@@ -36,4 +36,4 @@ def generate_schema(version, date):
     g.add((APPEAR.application, RDF.type, RDFS.Class))
     g.add((APPEAR.application, RDFS.isDefinedBy, URIRef("{}application#".format(HOST_URL))))
     g.add((APPEAR.application, RDFS.label, Literal('Application')))
-    return g.serialize(format='turtle').decode('utf-8')
+    return g.serialize(format='turtle').encode('utf-8')
