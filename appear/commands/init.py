@@ -4,6 +4,7 @@ import os
 import importlib.resources
 
 
+# TODO: Create path&filename builder
 ROOT_PATH = ".appear/"
 SCHEMA_PATH = ROOT_PATH + "schema/"
 TEMPLATES_PATH = ROOT_PATH + "templates/"
@@ -58,6 +59,7 @@ def create_templates_schemas(schema_type, name):
     create_templates_directories(schema_path, template_path)
 
     # TODO: Convert to a http request for assets
+    # TODO: Create path&filename builder
     schema_source_path = f'schemas/{schema_type}/{name}/'
     with importlib.resources.path("appear", f'{schema_source_path}appear.config.json') as data_path:
         with open(data_path, 'r') as config_source_fd:
@@ -66,6 +68,7 @@ def create_templates_schemas(schema_type, name):
             config_target_fd.write(config_content)
             config_target_fd.close()
 
+    # TODO: Create path&filename builder
     template_source_path = f'templates/{schema_type}/{name}/'
     with importlib.resources.path("appear", f'{template_source_path}appear.config.json') as data_path:
         with open(data_path, 'r') as template_source_fd:

@@ -1,9 +1,15 @@
 """Backend templates"""
 
+from importlib import import_module
+from types import ModuleType
+
+
+super_type = 'python'
+
 
 def get_backend_application(schema_model):
-    application_type = getattr(schema_model, type, None)
+    application_type = schema_model['type']
     if application_type is not None:
-        importer = __import__(f'appear.templates.backend.{schema_model.type}', globals(), locals())
+        importer: ModuleType = import_module(f'appear.templates.backend.{super_type}.{application_type}')
         return importer
     return None

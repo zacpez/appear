@@ -4,7 +4,7 @@ from appear.templates.backend.python.application import Application as BaseAppli
 
 class Application(BaseApplication):
     def __init__(self):
-        super.__init__()
+        super().__init__()
         self.name = "flask(python) application"
 
     def generate_application(self, template, filename, application_model):
@@ -16,10 +16,10 @@ class Application(BaseApplication):
         pass
 
     def generate_backend_files(self, schema_model):
-        super.generate_backend_files(schema_model)
+        super().generate_backend_files(schema_model)
 
-        application = getattr(schema_model, 'application')
-        resources = getattr(application, 'resources')
+        application = getattr(schema_model, 'application', None)
+        resources = getattr(application, 'resources', None)
 
         if resources is not None:
             self.generate_resources(resources)

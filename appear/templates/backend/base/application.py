@@ -4,6 +4,7 @@ from jinja2 import Template
 
 class Application():
     def __init__(self):
+        super().__init__()
         self.name = "base application"
 
     def generate_template(template, filename, model):

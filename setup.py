@@ -35,10 +35,10 @@ setup(
     license="Apache-2.0 License",
     packages=packages,
     platforms=["any"],
-    python_requires=">=3.8",
+    python_requires=">=3.10",
     install_requires=[
         'requests',
-        'importlib; python_version == "3.9"',
+        'importlib; python_version == "3.10"',
     ],
     long_description=readme('README.md'),
     entry_points={

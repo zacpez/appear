@@ -29,7 +29,7 @@ without setting flags will create a skeleton configuration folder, and
 the develop must fill out their own schema and templates.
 
 ```bash
-pwd 
+pwd
   /my/projects/new_project
 appear init # Creates a `.appear` directory in your project.
 ls
@@ -126,3 +126,11 @@ An RFC has an associated status
 ## Contribution
 
 In addition to RFC contribution we also follow an [implementation contribution guide](CONTRIBUTION.md). Thanks goes to [PurpleBooth](https://gist.github.com/PurpleBooth) for supplying a [template contribution file](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
+
+### Developer quick start guide
+
+```bash
+# install python >=3.10, pip >22
+pip install -r requirements.txt
+./dev-install.sh
+```
