@@ -7,7 +7,7 @@ from appear.commands.publish import run_publish
 
 __package__ = "appear"
 __version__ = "0.0.2"
-__date__ = "2021-08-14"
+__date__ = "2022-07-16"
 DEBUG = False
 
 

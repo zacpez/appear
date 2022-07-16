@@ -5,7 +5,7 @@
 - Reference Issues:
 - Implementation PR:
 
-# Summary
+## Summary
 
 The template language under discussion here is the string formatting language
 that Appear will use to generate code. The overarching design pattern follows
@@ -16,7 +16,7 @@ See the options in alternatives.
 This proposal suggests the use of [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/)
 as the source of the application code templates.
 
-# Basic example
+## Basic example
 
 Example using inline context definition. But to note, definitions can be
 separated or hosted externally too.
@@ -67,7 +67,7 @@ def {{ endpoint.name }}():
 {% endfor %}
 ```
 
-# Motivation
+## Motivation
 
 `Why are we doing this?`
 
@@ -88,13 +88,13 @@ to customized workflows with clients quickly.
 
 Scope of work, deliverables:
 
-```
+```text
 1. A template language chosen
 2. Application common recipe templates available for use
 3. Application code writable to project folders
 ```
 
-# Detailed design
+## Detailed design
 
 The scope of the design encompasses a number of example jinja files with
 an application to render them. The application is easy to acquire and run.
@@ -104,7 +104,8 @@ be rendered as output: Vue, Flask, SQLAlchemy, Pytest, Postgres, nginx proxy.
 ## Installation steps
 
 Desired installation steps
-```
+
+```bash
 pip install appear
 ```
 
@@ -147,6 +148,7 @@ Number of Template files: 144
 ```
 
 Create a config with preferred starting templates
+
 ```bash
 > appear init --frontend=vue --backend=flask --database=postgres --container=nginx-proxy
 > tree .appear
@@ -180,35 +182,35 @@ Create a config with preferred starting templates
         └── form.submission.json
 ```
 
-# Drawbacks
+## Drawbacks
 
 `Why should we *not* do this?`
 
 Defining a templates for many application structure will be time consuming.
 
-* Can you really support PaaS, SaaS, IaaS, and other services as they evolve?
-* Can you really support all language options out there? 
+- Can you really support PaaS, SaaS, IaaS, and other services as they evolve?
+- Can you really support all language options out there?
 
 Self-imposed limitations and considerations upfront:
 
-* Web applications only
-* No updating of existing applications
-* Common recipes limited to Vue, Flask, Postgres, Docker
-* No infrastructure orchestration(future terraform)
-* Using more/less basic templates to facilitate builds, rather than a compiler
-* Use existing open-source code generators where possible
+- Web applications only
+- No updating of existing applications
+- Common recipes limited to Vue, Flask, Postgres, Docker
+- No infrastructure orchestration(future terraform)
+- Using more/less basic templates to facilitate builds, rather than a compiler
+- Use existing open-source code generators where possible
 
-# Alternatives
+## Alternatives
 
 There are many ways to write files, with a search and replace pattern.
 
-* [Inline Perl](https://www.perl.com/pub/2001/08/21/templating.html/)
-* [PHP Twig](https://twig.symfony.com/)
+- [Inline Perl](https://www.perl.com/pub/2001/08/21/templating.html/)
+- [PHP Twig](https://twig.symfony.com/)
 
-# Adoption strategy
+## Adoption strategy
 
 Supply a GETTING_STATED.md
 
 Supply multiple example applications or use cases.
 
-# Unresolved questions
+## Unresolved questions
