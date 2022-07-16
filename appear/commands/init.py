@@ -1,6 +1,6 @@
 from appear.schema.namespaces import generate_schema
 import os
-import json
+# import json
 import importlib.resources
 
 
@@ -17,13 +17,13 @@ def generate_config(version, date, frontend, backend, database, containers):
 
 def create_paths(frontend, backend, database, containers):
     """Create configuration paths"""
-    if os.path.isdir(ROOT_PATH) is not True:
+    if os.path.isdir(ROOT_PATH) is False:
         os.mkdir(ROOT_PATH)
 
-    if os.path.isdir(SCHEMA_PATH) is not True:
+    if os.path.isdir(SCHEMA_PATH) is False:
         os.mkdir(SCHEMA_PATH)
 
-    if os.path.isdir(TEMPLATES_PATH) is not True:
+    if os.path.isdir(TEMPLATES_PATH) is False:
         os.mkdir(TEMPLATES_PATH)
 
     if frontend is not None:

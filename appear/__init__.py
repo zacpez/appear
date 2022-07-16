@@ -1,4 +1,4 @@
-"""Apepar Schema commands and argument parsing"""
+"""Appear Schema commands and argument parsing"""
 import click
 from appear.commands.build import generate_app, generate_summary
 from appear.commands.init import generate_config
@@ -7,7 +7,7 @@ from appear.commands.publish import run_publish
 
 __package__ = "appear"
 __version__ = "0.0.2"
-__date__ = "2021-05-17"
+__date__ = "2021-08-14"
 DEBUG = False
 
 

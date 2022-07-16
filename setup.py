@@ -1,11 +1,11 @@
-"""Apppear CLI build definitions"""
+"""Appear CLI build definitions"""
 import re
 import os
 from setuptools import setup, find_packages
 
 
 def readme(filename):
-    """Reads the main readmen and places it in the package definition"""
+    """Reads the main readme and places it in the package definition"""
     return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 

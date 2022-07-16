@@ -28,7 +28,6 @@ def build_appear_assets(version, date):
     create_python_docs(schema_path)
     create_schema_files(schema_path, version, date)
     create_markdown_pages()
-    # TODO Make nuxt app
 
     end = time.time()
     click.echo(click.style("Build finished in {} seconds".format(end - start), bg="green"))
@@ -51,7 +50,7 @@ def create_python_docs(schema_path):
 
 
 def create_markdown_pages():
-    """Copies markdown from codebase to page content dirrectory"""
+    """Copies markdown from codebase to page content directory"""
     click.echo("Copying markdown pages")
     os.system(f'rm -rf {CONTENT_DIR}*')
     if os.path.isdir(f'{CONTENT_DIR}rfcs/') is False:

@@ -1,4 +1,5 @@
 # Appear
+
 Appear is a CLI toolkit to generate application code.
 
 * Swiftly write application code by leaving the repeatable tasks for a generator.
@@ -8,15 +9,17 @@ Appear is a CLI toolkit to generate application code.
 ## Installation steps
 
 Appear can be installed with Python package manager.
+
 ``` bash
-$ pip install appear
+pip install appear
 ```
 
 OR
 
 Clone and install the latest version of Appear directly
+
 ```bash
-$ pip install git+https://github.com/zacpez/appear@main
+pip install git+https://github.com/zacpez/appear@main
 ```
 
 ## Getting started
@@ -26,10 +29,10 @@ without setting flags will create a skeleton configuration folder, and
 the develop must fill out their own schema and templates.
 
 ```bash
-$ pwd 
+pwd 
   /my/projects/new_project
-$ appear init # Creates a `.appear` directory in your project.
-$ ls
+appear init # Creates a `.appear` directory in your project.
+ls
   .appear/
   README.md
 ```
@@ -96,6 +99,7 @@ Number of Template files: 144
 ```
 
 ## RFC Process
+
 In this project we will follow an [RFC process that vuejs follows](https://github.com/vuejs/rfcs). It is a github-based workflow that is manageable for a project like this. Below is a reiteration of the above link, please read both.
 
 ### Scope
@@ -104,9 +108,10 @@ The intention is that RFCs capture the larger ideas that require significant for
 
 ### Definition & Lifecycle
 
-To submit an RFC, create a PR with RFC labelm, and a title starting with `"RFC:"`, for example `RFC: First application code languages and frameworks`. The content of the RFC will reside in the ``/rfcs/`` directory RFCs will formatted as a Markdown file with incrementing file number and a unique feature name.
+To submit an RFC, create a PR with RFC label, and a title starting with `"RFC:"`, for example `RFC: First application code languages and frameworks`. The content of the RFC will reside in the ``/rfcs/`` directory RFCs will formatted as a Markdown file with incrementing file number and a unique feature name.
 Please follow the [template](https://github.com/vuejs/rfcs/blob/master/0000-template.md) for a RFC, this will ensure fewer edits before implementation.
-```
+
+```bash
 /rfcs/
   + 0000-project-name.md
 ```
