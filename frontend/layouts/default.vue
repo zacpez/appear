@@ -30,6 +30,7 @@
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
       <v-toolbar-title v-text="title" />
+      <!--- TODO: add versions switch for docs --->
       <v-spacer />
       <v-btn icon title="Go to Appear on Github" @click.stop="openGithub">
         <v-icon>mdi-github</v-icon>

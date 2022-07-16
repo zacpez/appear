@@ -1,0 +1,84 @@
+{
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "appear": "http://www.appear-schema.org/0/0/1/namespaces#",
+    "backend": "http://www.appear-schema.org/0/0/1/backend#",
+    "database": "http://www.appear-schema.org/0/0/1/database#"
+  },
+  "@type": "application:Application",
+  "application:type": "flask",
+  "requirements": {
+    "@type": "application:Requirements",
+    "template": "requirements.txt.jinja",
+    "filename": "requirements.txt",
+    "packages": {
+      "lock": true,
+      "list": [
+        {
+          "name": "flask",
+          "version": "1.1.2"
+        },
+        {
+          "name": "flask_restful",
+          "version": "0.3.8"
+        },
+        {
+          "name": "flask_sqlalchemy",
+          "version": "2.5.1"
+        },
+        {
+          "name": "gevent",
+          "version": "21.1.2"
+        }
+      ]
+    }
+  },
+  "application": {
+    "template": "__init__.py.jinja",
+    "filename": "__init__.py",
+    "resources": {
+      "user": {
+        "@type": "application:Resource",
+        "domain": "user",
+        "class": "User",
+        "model": {
+          "id": {
+            "@type": "rdf:Property",
+            "database:column": "pk",
+            "database:columnType": "int"
+          },
+          "name": {
+            "@type": "rdf:Property",
+            "database:column": "name",
+            "database:columnType": "text"
+          },
+          "status": {
+            "@type": "rdf:Property",
+            "database:column": "status",
+            "database:columnType": "text"
+          }
+        },
+        "endpoints": [
+          {
+            "name": "_user",
+            "uri": "/user",
+            "methods": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        ]
+      },
+      "user-list": {
+        "domain": "user",
+        "class": "UserList",
+        "model": {},
+        "endpoints": []
+      }
+    }
+  }
+}

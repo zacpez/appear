@@ -1,3 +1,4 @@
+"""Appear Schema commands and argument parsing"""
 import click
 from appear.commands.build import generate_app, generate_summary
 from appear.commands.init import generate_config
@@ -5,8 +6,9 @@ from appear.commands.test import run_tests
 from appear.commands.publish import run_publish
 
 __package__ = "appear"
-__version__ = "0.0.1"
-__date__ = "2021-04-21"
+__version__ = "0.0.2"
+__date__ = "2022-07-16"
+DEBUG = False
 
 
 @click.group()
@@ -19,6 +21,8 @@ def appear(ctx):
     Example:\n
     \t$ appear build --summary
     """
+    if DEBUG:
+        print(ctx)
     if ctx.invoked_subcommand is None:
         click.echo('A command must be used: build, init, test')
     ctx.ensure_object(dict)
@@ -31,6 +35,8 @@ def appear(ctx):
 @click.pass_context
 def build(ctx, summary):
     """Builds an application from the appear configuration"""
+    if DEBUG:
+        print(ctx)
     if summary:
         generate_summary()
     click.echo(generate_app())
@@ -52,18 +58,29 @@ def build(ctx, summary):
 @click.pass_context
 def init(ctx, frontend, backend, database, containers):
     """Creates an appear configuration in .appear/"""
-    click.echo(generate_config(__version__, __date__, frontend, backend, database, containers.split(",")))
+    if DEBUG:
+        print(ctx)
+    click.echo(generate_config(__version__,
+                               __date__,
+                               frontend,
+                               backend,
+                               database,
+                               containers.split(",")))
 
 
 @appear.command()
 @click.pass_context
 def test(ctx):
     """Tests the appear configuration and application"""
-    click.echo(run_tests(__version__, __date__))
+    if DEBUG:
+        print(ctx)
+    click.echo(run_tests())
 
 
 @appear.command()
 @click.pass_context
 def publish(ctx):
     """Builds and publishes the appear hosted assets"""
+    if DEBUG:
+        print(ctx)
     click.echo(run_publish(__version__, __date__))

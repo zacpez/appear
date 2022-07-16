@@ -5,7 +5,7 @@
 - Reference Issues:
 - Implementation PR:
 
-# Summary
+## Summary
 
 The schema language under discussion here is the description language that
 Appear will use to generate code. The overarching design pattern follows
@@ -15,7 +15,7 @@ or serializations. See the options in alternatives.
 This proposal suggests the use of RDF as the source of the application code
 schema. The serialized format of choice is [JSON-LD](https://w3c.github.io/json-ld-syntax/).
 
-# Basic example
+## Basic example
 
 Example using inline context definition. But to note, definitions can be
 separated or hosted externally too.
@@ -60,7 +60,7 @@ separated or hosted externally too.
 }
 ```
 
-# Motivation
+## Motivation
 
 `Why are we doing this?`
 
@@ -81,7 +81,7 @@ to customized workflows with clients quickly.
 
 Scope of work, deliverables:
 
-```
+```text
 1. A schema language chosen
 2. Application schema namespaces hosted for use
 3. Application code to read and validate developer schemas
@@ -90,17 +90,17 @@ Scope of work, deliverables:
 
 From a users perspective this supports:
 
-```
+```text
 Input schema files or command line arguments generate application files as output. Subsets of the application can be built as required by the developer.
 ```
 
-# Detailed design
+## Detailed design
 
 ## Installation steps
 
 Desired installation steps
 
-```
+```bash
 pip install appear
 ```
 
@@ -145,11 +145,11 @@ Number of Template files: 144
 ## Hosting
 
 Using a basic host provider to serve a schema for Appear.
-http://appear-schema.org
+[http://appear-schema.org](http://appear-schema.org)
 
 Deliverables:
 
-```
+```text
 * Homepage
 * Documentation deployment
 * Activity Index of deployed schemas

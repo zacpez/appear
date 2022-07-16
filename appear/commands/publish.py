@@ -46,10 +46,11 @@ def create_frontend():
 def create_python_docs(schema_path):
     click.echo("Creating python docs")
     os.system(f'pdoc3 --html -o {schema_path}docs --force appear')
+    # TODO: Make main documentation page the latest version
 
 
 def create_markdown_pages():
-    """Copies markdown from codebase to page content dirrectory"""
+    """Copies markdown from codebase to page content directory"""
     click.echo("Copying markdown pages")
     os.system(f'rm -rf {CONTENT_DIR}*')
     if os.path.isdir(f'{CONTENT_DIR}rfcs/') is False:
