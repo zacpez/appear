@@ -15,7 +15,8 @@ def find_version(filename):
     for line in open(filename):
         version_match = _version_re.match(line)
         if version_match:
-            return version_match.group(1)
+            return str(version_match.group(1))
+    return "X.X.X"
 
 
 version = find_version("appear-schema/__init__.py")
