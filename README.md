@@ -1,4 +1,4 @@
-# Appear
+# Appear Schema
 
 [![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
 
@@ -13,12 +13,12 @@ Appear is a CLI toolkit to generate application code.
 Appear can be installed with Python package manager.
 
 ``` bash
-pip install appear
+pip install appear-schema
 ```
 
 OR
 
-Clone and install the latest version of Appear directly
+Clone and install the latest version of Appear Schema directly
 
 ```bash
 pip install git+https://github.com/zacpez/appear@main
@@ -26,16 +26,16 @@ pip install git+https://github.com/zacpez/appear@main
 
 ## Getting started
 
-Initialize an Appear configuration in a project folder. Initialization
+Initialize an Appear Schema configuration in a project folder. Initialization
 without setting flags will create a skeleton configuration folder, and
 the develop must fill out their own schema and templates.
 
 ```bash
 pwd
   /my/projects/new_project
-appear init # Creates a `.appear` directory in your project.
+appear-schema init # Creates a `.appear-schema` directory in your project.
 ls
-  .appear/
+  .appear-schema/
   README.md
 ```
 
@@ -44,8 +44,8 @@ the example below, will create schemas and templates that match the stack
 described. The application will be bare bones, but the app can stand up easily.
 
 ```bash
-$ appear init --frontend=vue --backend=flask --database=postgres --container=nginx-proxy
-$ tree .appear
+$ appear-schema init --frontend=vue --backend=flask --database=postgres --container=nginx-proxy
+$ tree .appear-schema
 .
 ├── templates
 │   ├── frontend
@@ -79,9 +79,9 @@ $ tree .appear
 After setting up the application configuration run a build the project folder.
 
 ```bash
-$ appear build # Creates project files in your project.
+$ appear-schema build # Creates project files in your project.
 $ ls
-  .appear/
+  .appear-schema/
   frontend/
   backend/
   database/
@@ -93,7 +93,7 @@ Check some basic statistics of the application configuration. This can be handy
 to validate the build.
 
 ```bash
-$ appear build --summary # returns meta data on .appear configs
+$ appear-schema build --summary # returns meta data on `.appear-schema` configs
 Components: frontend, backend, database
 Number of user Schemas: 12
 Number of Template files: 144
