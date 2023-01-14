@@ -1,4 +1,4 @@
-name: Appear frontend - Continuous Integration
+name: Appear Schema frontend - Continuous Integration
 
 on:
   push:
