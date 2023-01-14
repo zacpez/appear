@@ -19,7 +19,7 @@ def find_version(filename):
     return "X.X.X"
 
 
-version = find_version("appear-schema/__init__.py")
+version = find_version("appear_schema/__init__.py")
 
 packages = find_packages(include=("appear*"))
 
