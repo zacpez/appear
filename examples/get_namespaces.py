@@ -1,3 +1,3 @@
-from appear.schema import namespaces
+from appear_schema.schema import namespaces
 
-print(namespaces.generate_schema('0.1.0', '2022-12-12'))
+print(namespaces.generate_schema('0.2.0', '2023-01-14'))

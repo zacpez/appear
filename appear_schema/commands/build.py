@@ -1,13 +1,13 @@
 import click
 import json
 import os
-from appear.templates.backend import get_backend_application
+from appear_schema.templates.backend import get_backend_application
 
 # TODO: Create path&filename builder
-BACKEND_FILE = '.appear/schema/backend/appear.config.json'
-CONTAINER_FILE = '.appear/schema/container/appear.config.json'
-DATABASE_FILE = '.appear/schema/database/appear.config.json'
-FRONTEND_FILE = '.appear/schema/frontend/appear.config.json'
+BACKEND_FILE = '.appear-schema/schema/backend/appear.config.json'
+CONTAINER_FILE = '.appear-schema/schema/container/appear.config.json'
+DATABASE_FILE = '.appear-schema/schema/database/appear.config.json'
+FRONTEND_FILE = '.appear-schema/schema/frontend/appear.config.json'
 
 
 def load_appear_config():

@@ -1,5 +1,5 @@
 """Python Application Model"""
-from appear.templates.backend.base.application import Application as BaseApplication
+from appear_schema.templates.backend.base.application import Application as BaseApplication
 
 
 class Application(BaseApplication):

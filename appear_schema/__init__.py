@@ -1,25 +1,25 @@
 """Appear Schema commands and argument parsing"""
 import click
-from appear.commands.build import generate_app, generate_summary
-from appear.commands.init import generate_config
-from appear.commands.test import run_tests
-from appear.commands.publish import run_publish
+from appear_schema.commands.build import generate_app, generate_summary
+from appear_schema.commands.init import generate_config
+from appear_schema.commands.test import run_tests
+from appear_schema.commands.publish import run_publish
 
-__package__ = "appear"
-__version__ = "0.0.2"
-__date__ = "2022-07-16"
+__package__ = "appear_schema"
+__version__ = "0.2.0"
+__date__ = "2023-01-14"
 DEBUG = False
 
 
 @click.group()
 @click.version_option(version=__version__)
 @click.pass_context
-def appear(ctx):
+def appear_schema(ctx):
     """
-    Appear is a CLI toolkit to generate application code.
+    Appear Schema is a CLI toolkit to generate application code.
 
     Example:\n
-    \t$ appear build --summary
+    \t$ appear-schema build --summary
     """
     if DEBUG:
         print(ctx)
@@ -28,13 +28,13 @@ def appear(ctx):
     ctx.ensure_object(dict)
 
 
-@appear.command()
+@appear_schema.command()
 @click.option("--summary", "summary",
               is_flag=True,
-              help="Describes the current project's appear configuration")
+              help="Describes the current project's appear-schema configuration")
 @click.pass_context
 def build(ctx, summary):
-    """Builds an application from the appear configuration"""
+    """Builds an application from the appear-schema configuration"""
     if DEBUG:
         print(ctx)
     if summary:
@@ -42,22 +42,22 @@ def build(ctx, summary):
     click.echo(generate_app())
 
 
-@appear.command()
+@appear_schema.command()
 @click.option("--frontend", "frontend",
               default='vue',
-              help="Identifies a frontend to put in the appear configuration")
+              help="Identifies a frontend to put in the appear-schema configuration")
 @click.option("--backend", "backend",
               default='flask',
-              help="Identifies a backend to put in the appear configuration")
+              help="Identifies a backend to put in the appear-schema configuration")
 @click.option("--database", "database",
               default='postgres',
-              help="Identifies a database to put in the appear configuration")
+              help="Identifies a database to put in the appear-schema configuration")
 @click.option("--containers", "containers",
               default='nginx',
-              help="Identifies containers to put in the appear configuration")
+              help="Identifies containers to put in the appear-schema configuration")
 @click.pass_context
 def init(ctx, frontend, backend, database, containers):
-    """Creates an appear configuration in .appear/"""
+    """Creates an appear-schema configuration in .appear-schema/"""
     if DEBUG:
         print(ctx)
     click.echo(generate_config(__version__,
@@ -68,19 +68,19 @@ def init(ctx, frontend, backend, database, containers):
                                containers.split(",")))
 
 
-@appear.command()
+@appear_schema.command()
 @click.pass_context
 def test(ctx):
-    """Tests the appear configuration and application"""
+    """Tests the appear-schema configuration and application"""
     if DEBUG:
         print(ctx)
     click.echo(run_tests())
 
 
-@appear.command()
+@appear_schema.command()
 @click.pass_context
 def publish(ctx):
-    """Builds and publishes the appear hosted assets"""
+    """Builds and publishes the appear-schema hosted assets"""
     if DEBUG:
         print(ctx)
     click.echo(run_publish(__version__, __date__))

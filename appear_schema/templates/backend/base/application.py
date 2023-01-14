@@ -18,7 +18,8 @@ class Application():
             generated_fd = open(filename, "w", encoding='utf-8')
             generated_fd.write(generated_content)
             generated_fd.close()
-        except(FileNotFoundError, IOError) as error:
+
+        except (FileNotFoundError, IOError) as error:
             print(f'{error.errno}: Failed to write {template}, {filename}')
 
     def generate_backend_files(self, schema_model):

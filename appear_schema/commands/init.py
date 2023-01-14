@@ -1,4 +1,4 @@
-from appear.schema.namespaces import generate_schema
+from appear_schema.schema.namespaces import generate_schema
 import os
 # import json
 import importlib.resources

@@ -1,5 +1,5 @@
 """Flask(Python) Application Model"""
-from appear.templates.backend.python.application import Application as BaseApplication
+from appear_schema.templates.backend.python.application import Application as BaseApplication
 
 
 class Application(BaseApplication):

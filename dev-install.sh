@@ -2,6 +2,6 @@
 
 python setup.py build
 python setup.py install
-appear --help
+appear-schema --help
 echo ""
-echo "The above print is the installed varient of Appear"
+echo "The above print is the installed varient of Appear Schema"

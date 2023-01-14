@@ -2,7 +2,7 @@
 
 [![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
 
-Appear is a CLI toolkit to generate application code.
+Appear Schema is a CLI toolkit to generate application code.
 
 * Swiftly write application code by leaving the repeatable tasks for a generator.
 * Improve maintainability by making the application files consistent.
@@ -10,7 +10,7 @@ Appear is a CLI toolkit to generate application code.
 
 ## Installation steps
 
-Appear can be installed with Python package manager.
+Appear Schema can be installed with Python package manager.
 
 ``` bash
 pip install appear-schema
@@ -21,7 +21,7 @@ OR
 Clone and install the latest version of Appear Schema directly
 
 ```bash
-pip install git+https://github.com/zacpez/appear@main
+pip install git+https://github.com/zacpez/appear-schema@main
 ```
 
 ## Getting started

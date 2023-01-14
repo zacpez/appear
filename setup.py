@@ -1,4 +1,4 @@
-"""Appear CLI build definitions"""
+"""Appear Schema CLI build definitions"""
 import re
 import os
 from setuptools import setup, find_packages
@@ -18,20 +18,20 @@ def find_version(filename):
             return version_match.group(1)
 
 
-version = find_version("appear/__init__.py")
+version = find_version("appear-schema/__init__.py")
 
 packages = find_packages(include=("appear*"))
 
 setup(
-    name='appear',
+    name='appear-schema',
     version=version,
-    description="Appear is a CLI toolkit to generate application code.",
+    description="Appear Schema is a CLI toolkit to generate application code.",
     keywords="meta-programming generator semantic jinja rdf json-ld",
     author="Zac Pez",
     author_email="zacpez@gmail.com",
-    maintainer="Appear Team",
+    maintainer="Appear Schema Team",
     maintainer_email="contact@appear-schema.org",
-    url="https://github.com/zacpez/appear",
+    url="https://github.com/zacpez/appear-schema",
     license="Apache-2.0 License",
     packages=packages,
     platforms=["any"],
@@ -43,7 +43,7 @@ setup(
     long_description=readme('README.md'),
     entry_points={
         'console_scripts': [
-            'appear = appear:appear'
+            'appear-schema = appear_schema:appear_schema'
         ]
     },
 )

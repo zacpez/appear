@@ -8,7 +8,7 @@
 ## Summary
 
 The schema language under discussion here is the description language that
-Appear will use to generate code. The overarching design pattern follows
+Appear Schema will use to generate code. The overarching design pattern follows
 Resource Description Framework(RDF), under which has multiple data formats
 or serializations. See the options in alternatives.
 
@@ -101,7 +101,7 @@ Input schema files or command line arguments generate application files as outpu
 Desired installation steps
 
 ```bash
-pip install appear
+pip install appear-schema
 ```
 
 ## CLI Toolkit
@@ -109,22 +109,22 @@ pip install appear
 Desired start of an application in a project folder
 
 ```bash
-> appear init # Creates a `.appear` directory in your project.
+> appear-schema init # Creates a `.appear` directory in your project.
 > ls
   .
   ..
-  .appear/
+  .appear-schema/
   README.md
 ```
 
 Desired build of an application in a project folder
 
 ```bash
-> appear build # Creates project files in your project.
+> appear-schema build # Creates project files in your project.
 > ls
   .
   ..
-  .appear/
+  .appear-schema/
   frontend/
   backend/
   database/
@@ -135,7 +135,7 @@ Desired build of an application in a project folder
 Desired summary of an application
 
 ```bash
-> appear build --summary # returns meta data on .appear configs
+> appear-schema build --summary # returns meta data on .appear configs
 Components: frontend, backend, database
 Number of user Schemas: 12
 Number of Template files: 144
@@ -144,7 +144,7 @@ Number of Template files: 144
 
 ## Hosting
 
-Using a basic host provider to serve a schema for Appear.
+Using a basic host provider to serve a schema for Appear Schema.
 [http://appear-schema.org](http://appear-schema.org)
 
 Deliverables:
@@ -157,7 +157,7 @@ Deliverables:
 
 ### Semantic versioning
 
-Use semantic versioning to versions the schema(eg. http://appear-schema.org/1/0/0/application-ns#)
+Use semantic versioning to versions the schema(eg. <http://appear-schema.org/1/0/0/application-ns#>)
 
 ## Resource definitions
 
@@ -167,55 +167,55 @@ There are likely more considerations to make for parent and child classification
 
 This is an index of all available namespaces to use in Appear code generation.
 
-MUST have URI http://appear-schema.org/1/0/0/namespaces#
+MUST have URI <http://appear-schema.org/1/0/0/namespaces#>
 
 ### `appear:application`
 
 Defines the general meta data of the application.
 
-MUST have URI http://appear-schema.org/1/0/0/application-ns#
+MUST have URI <http://appear-schema.org/1/0/0/application-ns#>
 
 ### `appear:asset`
 
 Defines assets for the application, backend, frontend, database, or container.
 
-MUST have URI http://appear-schema.org/1/0/0/asset-ns#
+MUST have URI <http://appear-schema.org/1/0/0/asset-ns#>
 
 ### `appear:backend`
 
 Defines a backend framework, and its meta data.
 
-MUST have URI http://appear-schema.org/1/0/0/backend-ns#
+MUST have URI <http://appear-schema.org/1/0/0/backend-ns#>
 
 ### `appear:build`
 
 Defines application subsets and ordering for the build steps.
 
-MUST have URI http://appear-schema.org/1/0/0/build-ns#
+MUST have URI <http://appear-schema.org/1/0/0/build-ns#>
 
 ### `appear:container`
 
 Defines generic containers, say docker for example.
 
-MUST have URI http://appear-schema.org/1/0/0/container-ns#
+MUST have URI <http://appear-schema.org/1/0/0/container-ns#>
 
 ### `appear:database`
 
 Defines a datastore, such as postgres or mongoDB.
 
-MUST have URI http://appear-schema.org/1/0/0/database-ns#
+MUST have URI <http://appear-schema.org/1/0/0/database-ns#>
 
 ### `appear:frontend`
 
 Defines a frontend framework.
 
-MUST have URI http://appear-schema.org/1/0/0/frontend-ns#
+MUST have URI <http://appear-schema.org/1/0/0/frontend-ns#>
 
 ### `appear:schema`
 
 Defines an application object such as a user, page, form submission, etc.
 
-MUST have URI http://appear-schema.org/1/0/0/schema-ns#
+MUST have URI <http://appear-schema.org/1/0/0/schema-ns#>
 
 ## Common recipes
 
