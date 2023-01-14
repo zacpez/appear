@@ -1,6 +1,6 @@
 # Appear Schema
 
-[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
+[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/suspended.svg)](https://www.repostatus.org/#suspended )
 
 Appear Schema is a CLI toolkit to generate application code.
 
@@ -8,7 +8,9 @@ Appear Schema is a CLI toolkit to generate application code.
 * Improve maintainability by making the application files consistent.
 * Reduce copy-paste errors or dangling unused code by design.
 
-## Installation steps
+## Users Guide
+
+### Installation steps
 
 Appear Schema can be installed with Python package manager.
 
@@ -24,7 +26,7 @@ Clone and install the latest version of Appear Schema directly
 pip install git+https://github.com/zacpez/appear-schema@main
 ```
 
-## Getting started
+### Getting started
 
 Initialize an Appear Schema configuration in a project folder. Initialization
 without setting flags will create a skeleton configuration folder, and
@@ -100,18 +102,33 @@ Number of Template files: 144
 ...
 ```
 
+## Developer Guide
+
+The development process consists of two parts, proposals in Request For Comments
+fashion, and proof of concept as an implementation and a usual PR process. Small
+interactive PRs are great, large ones will take time to review. Keep that in mind.
+
 ## RFC Process
 
-In this project we will follow an [RFC process that vuejs follows](https://github.com/vuejs/rfcs). It is a github-based workflow that is manageable for a project like this. Below is a reiteration of the above link, please read both.
+In this project we will follow an [RFC process that vuejs follows](https://github.com/vuejs/rfcs).
+It is a github-based workflow that is manageable for a project like this. Below
+is a reiteration of the above link, please read both.
 
 ### Scope
 
-The intention is that RFCs capture the larger ideas that require significant forethought, design, and planning. Smaller issues can be submitted through a usual Pull Request(PR) such as bugs, hardening, and feature extensions.
+The intention is that RFCs capture the larger ideas that require significant
+forethought, design, and planning. Smaller issues can be submitted through a
+usual Pull Request(PR) such as bugs, hardening, and feature extensions.
 
 ### Definition & Lifecycle
 
-To submit an RFC, create a PR with RFC label, and a title starting with `"RFC:"`, for example `RFC: First application code languages and frameworks`. The content of the RFC will reside in the ``/rfcs/`` directory RFCs will formatted as a Markdown file with incrementing file number and a unique feature name.
-Please follow the [template](https://github.com/vuejs/rfcs/blob/master/0000-template.md) for a RFC, this will ensure fewer edits before implementation.
+To submit an RFC, create a PR with RFC label, and a title starting with `"RFC:"`,
+for example `RFC: First application code languages and frameworks`. The content
+of the RFC will reside in the ``/rfcs/`` directory RFCs will formatted as a
+Markdown file with incrementing file number and a unique feature name.
+
+Please follow the [template](https://github.com/vuejs/rfcs/blob/master/0000-template.md)
+for a RFC, this will ensure fewer edits before implementation.
 
 ```bash
 /rfcs/
@@ -127,12 +144,20 @@ An RFC has an associated status
 
 ## Contribution
 
-In addition to RFC contribution we also follow an [implementation contribution guide](CONTRIBUTION.md). Thanks goes to [PurpleBooth](https://gist.github.com/PurpleBooth) for supplying a [template contribution file](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
+In addition to RFC contribution we also follow an [implementation contribution guide](CONTRIBUTION.md).
+Thanks goes to [PurpleBooth](https://gist.github.com/PurpleBooth) for supplying a
+[template contribution file](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
 
 ### Developer quick start guide
 
 ```bash
 # install python >=3.10, pip >22
 pip install -r requirements.txt
+
+# View the file if you want to break development steps apart
 ./dev-install.sh
 ```
+
+Testing the installation, you should see the `appear-schema` CLI tool immediately,
+on Successful build of course. Its best to create a new directory and test the subcommands
+there. Building on top of the project
